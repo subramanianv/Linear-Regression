@@ -15,4 +15,7 @@ Data file
 Data file is a text file where data is each column is separated by a single space
 
 See : exampleData.txt for reference
+========================================
+To be done :
+1) Feature Scaling
 
