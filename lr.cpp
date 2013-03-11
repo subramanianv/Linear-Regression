@@ -66,6 +66,7 @@ int main()
   {
       X[i][0] = 1;
   }
+  // Adding the remaining column vectors of x
   for(int i= 0;i < n - 1 ;i++)
   {
       
@@ -75,16 +76,17 @@ int main()
       
         X[j][i+1] = x[j] ; 
      } 
+    
   }  
 
-  Matrix Y(y.size(),1); // output
+  Matrix Y(y.size(),1); // output vector
   for(int i = 0 ; i < y.size() ; i++ )
   {
       Y[i][0] = y[i] ;	
   }
  
   Matrix w(X.getDimensions().second,1) ; 
-  Matrix g = gradient(w,X,Y);
+  Matrix g = gradient(w,X,Y); // intial gradient
   while( g.magnitude() > EPS   )
   {
       w = w  - g  ; // weight update 
