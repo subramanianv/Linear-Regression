@@ -86,14 +86,14 @@ int main()
   }
  
   Matrix w(X.getDimensions().second,1) ;  // Initial vector which is set to '0'
-  Matrix g = gradient(w,X,Y); // intial gradient
+  Matrix g = gradient(w,X,Y); // intial gradient . 'g' is a column vector 
   while( g.magnitude() > EPS   )   // magnitude return the norm of the gradient 
   {
-      w = w  - g  ; // weight update    
-      g = gradient(w,X,Y);    
+      w = w  - g  ; // weight update . similar to x = x + alpha * search direction . Direction is negative so its w - g    
+      g = gradient(w,X,Y); // update the gradient     
       cout<<computeCosts(w,X,Y)<<endl; // the cost has to be decreasing
   } 
   cout<<"Weight Vector";
-  cout << w.transpose(); // final w * 
+  cout << w.transpose(); // final w* 
   
 }
