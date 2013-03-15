@@ -85,15 +85,15 @@ int main()
       Y[i][0] = y[i] ;	
   }
  
-  Matrix w(X.getDimensions().second,1) ; 
+  Matrix w(X.getDimensions().second,1) ;  // Initial vector which is set to '0'
   Matrix g = gradient(w,X,Y); // intial gradient
-  while( g.magnitude() > EPS   )
+  while( g.magnitude() > EPS   )   // magnitude return the norm of the gradient 
   {
-      w = w  - g  ; // weight update 
+      w = w  - g  ; // weight update    
       g = gradient(w,X,Y);    
       cout<<computeCosts(w,X,Y)<<endl; // the cost has to be decreasing
   } 
   cout<<"Weight Vector";
-  cout << w.transpose();
+  cout << w.transpose(); // final w * 
   
 }
